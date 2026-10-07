@@ -1,0 +1,66 @@
+/* ===== 零文案惊喜式互动 · 基础 ===== */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #08040a;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
+
+/* 底层：惊喜内容（被覆盖层完整遮住） */
+#scene {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #08040a;
+}
+
+/* 全屏覆盖层：不透明，完整盖住底层内容 */
+#veil {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: radial-gradient(circle at 50% 46%, #170a18 0%, #0a040c 55%, #060208 100%);
+  opacity: 1;
+  will-change: opacity;
+}
+#veil.gone { display: none; }
+
+#sceneCvs, #veilCvs {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* 调试面板：仅 ?debug=1 时出现 */
+.debug {
+  position: fixed;
+  left: 8px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: rgba(180, 255, 210, .8);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre;
+  display: none;
+  z-index: 90;
+  pointer-events: none;
+  text-shadow: 0 0 6px #000;
+}
+.debug.show { display: block; }

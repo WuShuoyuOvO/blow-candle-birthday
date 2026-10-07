@@ -1,0 +1,27 @@
+# ---- 平台 / 工具内部元数据（不随开源发布）----
+.workbuddy/
+.wbapp_*.genie
+
+# ---- 本地调试产物 ----
+_smoke.out.txt
+_verify.txt
+_recon.txt
+
+# ---- 依赖与构建产物 ----
+node_modules/
+dist/
+build/
+*.tgz
+
+# ---- 编辑器 / 系统文件 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---- 日志 ----
+*.log
+npm-debug.log*
